@@ -11,7 +11,7 @@ RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Up
 -  📷 ***/screenshot*** - Take a screenshot of the Screen                        
 -  📋 ***/tasks*** - Get all tasks in CSV format                        
 -  📡 ***/wifi*** - Get saved Network data                        
--  🆔 ***/chatid*** - Get the current Chat/Group ID                       
+-  🆔 ***/chatid*** - Get the current Chat/Group ID  (just for the setup)                     
 
 **Planned Features...**
 -  ⌨️ ***/keylogger*** - Keylogging + .csv                
