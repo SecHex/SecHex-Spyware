@@ -5,7 +5,7 @@ RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Up
 # Features
 
 **RPZ-Telegram Spyware**                                              
-- [x]🔒 /discord - Get Discord tokens                        
+-🔒 /discord - Get Discord tokens                        
 +🍪 /browsercookies - Get browser cookies                        
 +🖥️ /systeminfo - Get system information                        
 +📷 /screenshot - Take a screenshot of the Screen                        
