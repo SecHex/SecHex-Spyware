@@ -2,13 +2,13 @@
 RPZ-Spyware [Lite] 
 
 RPZ-Telegram Spyware
-+🔒 /discord - Get Discord tokens
-+🍪 /browsercookies - Get browser cookies
-+🖥️ /systeminfo - Get system information
-+📷 /screenshot - Take a screenshot of the Screen
-+📋 /tasks - Get all tasks in CSV format
-+📡 /wifi - Get saved Network data
-+🆔 /chatid - Get the current Chat/Group ID
++🔒 /discord - Get Discord tokens                        
++🍪 /browsercookies - Get browser cookies                        
++🖥️ /systeminfo - Get system information                        
++📷 /screenshot - Take a screenshot of the Screen                        
++📋 /tasks - Get all tasks in CSV format                        
++📡 /wifi - Get saved Network data                        
++🆔 /chatid - Get the current Chat/Group ID                        
 
 More soon...
 
