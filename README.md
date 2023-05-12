@@ -16,7 +16,7 @@ RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Up
 **Planned Features...**
 -  ⌨️ ***/keylogger*** - Keylogging + .csv                
 -  🎤 ***/mic*** - Record the Mic
--  📷 ***/Webcam*** - Record and control the webcam   
+-  📷 ***/webcam*** - Record and control the webcam   
 -  📁 ***/data-scan*** - Scan for [pdf, docs, png, jpg, db ...]  
  _More soon..._
 
