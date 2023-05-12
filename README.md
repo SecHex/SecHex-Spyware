@@ -1,7 +1,7 @@
 # Spyware-LITE
 RPZ-Spyware [Lite] 
 
-RPZ-Telegram Spyware
+**RPZ-Telegram Spyware**
 +🔒 /discord - Get Discord tokens                        
 +🍪 /browsercookies - Get browser cookies                        
 +🖥️ /systeminfo - Get system information                        
@@ -10,7 +10,7 @@ RPZ-Telegram Spyware
 +📡 /wifi - Get saved Network data                        
 +🆔 /chatid - Get the current Chat/Group ID                        
 
-More soon...
+_More soon..._
 
 
 # Disclaimer
