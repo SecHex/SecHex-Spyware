@@ -1,0 +1,13 @@
+os
+socket
+uuid
+psutil
+cpuinfo
+browser_cookie3
+telebot
+json
+pyautogui
+csv
+winreg
+time
+subprocess
