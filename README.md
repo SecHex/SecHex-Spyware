@@ -1,5 +1,6 @@
 # Spyware-LITE
-RPZ-Spyware [Lite] 
+RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Updates soon...)
+
 
 # Features
 
