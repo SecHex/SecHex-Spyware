@@ -11,3 +11,7 @@ csv
 winreg
 time
 subprocess
+win32api
+cv2
+sounddevice
+soundfile
