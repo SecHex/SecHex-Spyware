@@ -7,7 +7,7 @@ RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Up
 
 **RPZ-Telegram Spyware**                                              
 -  🔒 ***/discord*** - Get Discord tokens                        
--  🍪 ***/browsercookies*** - Get browser cookies                        
+-  🍪 ***/browsercookies*** - Get browser cookies (Updating...)                       
 -  🖥️ ***/systeminfo*** - Get system information                        
 -  📷 ***/screenshot*** - Take a screenshot of the Screen                        
 -  📋 ***/tasks*** - Get all tasks in CSV format                        
