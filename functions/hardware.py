@@ -3,8 +3,10 @@ import socket
 import uuid
 import psutil
 import cpuinfo
+import platform
 
-#Updating...
+
+
 
 def get_tasks():
     tasks = []
@@ -36,6 +38,11 @@ def get_system_info():
         for ele in range(0, 8*6, 8)][::-1])
     hwid = os.getenv('COMPUTERNAME')
     memory = f"{psutil.virtual_memory().total // (1024 ** 3)}GB"
+    os_name = platform.system()
+    os_version = platform.release()
+    cpu_name = cpuinfo.get_cpu_info()['brand_raw']
+    cpu_cores = psutil.cpu_count(logical=True)
+    cpu_freq = psutil.cpu_freq().current / 1000
 
     try:
         import GPUtil
@@ -48,7 +55,11 @@ def get_system_info():
         'mac_address': mac_address,
         'pc_name': hwid,
         'memory': memory,
+        'os_name': os_name,
+        'os_version': os_version,
+        'cpu_name': cpu_name,
+        'cpu_cores': cpu_cores,
+        'cpu_freq': cpu_freq,
         'is_running_on_vm': is_running_on_vm()
     }
     return system_info
-
