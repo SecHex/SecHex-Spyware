@@ -12,14 +12,20 @@ RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Up
 -  📷 ***/screenshot*** - Take a screenshot of the Screen                        
 -  📋 ***/tasks*** - Get all tasks in CSV format                        
 -  📡 ***/wifi*** - Get saved Network data                        
--  🆔 ***/chatid*** - Get the current Chat/Group ID  (just for the setup)                     
-
-**New Features...**              
+-  🆔 ***/chatid*** - Get the current Chat/Group ID  (just for the setup)                                  
 -  🎤 ***/record*** - Record for 10sec the Mic
 -  📷 ***/webcam*** - Selfie time?   
 -  📁 ***/datascan*** - Scan for [pdf, docs, png ...]  
 -  📁 ***/download*** - Download the files  
- _More soon..._
+
+# Milestones 🏆
+**5 Stars** - ***Keylogger, Browser Cookies + better code structure*** ✨                             
+**10 Stars** - ***Remote control, AV safe***  ✨                                                                
+**20 Stars** - ***"soon"*** ✨     
+
+
+
+
 
 
 ![Screenshot 2023-05-13 145210](https://github.com/Rapunzel-ware/Spyware-LITE/assets/96635023/29f3af6c-dac9-42ae-a3e9-c1faf64097c4)
