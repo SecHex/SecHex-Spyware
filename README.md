@@ -1,5 +1,5 @@
-# Spyware-LITE
-RPZ-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Updates soon...) 
+# SecHex-Spyware [Lite]
+SecHex-Spyware [Lite] (code is shitty rn. i wrote this in one hour or something. Updates soon...) 
 
 
 
